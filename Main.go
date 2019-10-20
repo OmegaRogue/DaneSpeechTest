@@ -23,12 +23,12 @@ const (
 	validWordCountWeight = 1.85
 )
 
-var model    = flag.String("model", "",    "Path to the model (protocol buffer binary file)")
+var model = flag.String("model", "", "Path to the model (protocol buffer binary file)")
 var alphabet = flag.String("alphabet", "", "Path to the configuration file specifying the alphabet used by the network")
-var audio    = flag.String("audio", "",    "Path to the audio file to run (WAV format)")
-var lm       = flag.String("lm", "",       "Path to the language model binary file")
-var trie     = flag.String("trie", "",     "Path to the language model trie file created with native_client/generate_trie")
-var version  = flag.Bool("version", false, "Print version and exits")
+var audio = flag.String("audio", "", "Path to the audio file to run (WAV format)")
+var lm = flag.String("lm", "", "Path to the language model binary file")
+var trie = flag.String("trie", "", "Path to the language model trie file created with native_client/generate_trie")
+var version = flag.Bool("version", false, "Print version and exits")
 var extended = flag.Bool("extended", false, "Use extended metadata")
 
 func metadataToString(m *astideepspeech.Metadata) string {
@@ -84,7 +84,7 @@ func main() {
 
 	// Take a slice of keys, say band names that are similar
 	// http://www.tonedeaf.com.au/412720/38-bands-annoyingly-similar-names.htm
-	wordsToTest := []string{"experience proves this"}
+	wordsToTest := []string{"hello dane"}
 
 	// Choose a set of bag sizes, more is more accurate but slower
 	bagSizes := []int{2}
