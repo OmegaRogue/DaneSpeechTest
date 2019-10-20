@@ -23,11 +23,11 @@ const (
 	validWordCountWeight = 1.85
 )
 
-var model = flag.String("model", "", "Path to the model (protocol buffer binary file)")
-var alphabet = flag.String("alphabet", "", "Path to the configuration file specifying the alphabet used by the network")
+var model = flag.String("model", "models/output_graph.pbmm", "Path to the model (protocol buffer binary file)")
+var alphabet = flag.String("alphabet", "models/alphabet.txt", "Path to the configuration file specifying the alphabet used by the network")
 var audio = flag.String("audio", "", "Path to the audio file to run (WAV format)")
-var lm = flag.String("lm", "", "Path to the language model binary file")
-var trie = flag.String("trie", "", "Path to the language model trie file created with native_client/generate_trie")
+var lm = flag.String("lm", "models/lm.binary", "Path to the language model binary file")
+var trie = flag.String("trie", "models/trie", "Path to the language model trie file created with native_client/generate_trie")
 var version = flag.Bool("version", false, "Print version and exits")
 var extended = flag.Bool("extended", false, "Use extended metadata")
 
@@ -119,4 +119,7 @@ func main() {
 
 	astilog.Infof("Text: %s", output)
 	astilog.Infof("Text: %s", cm.Closest(output))
+	if cm.Closest(output) == "hello dane" {
+		fmt.Println("Hello Human.")
+	}
 }
